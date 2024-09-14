@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio made using tailwind and gsap</title>
     <link rel="stylesheet" href="../dist/styles.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
 <body class="w-screen h-screen bg-black">
@@ -16,10 +16,11 @@
     <div class="grid grid-cols-12 grid-rows-8 gap-4 p-3 relative w-full h-full">
         <!--Div parent containing all the boxes-->
         <div class="col-span-10 col-start-2 bg-amber-50/90 rounded-xl flex flex-row items-center justify-between p-4">
-            <div class="font-serif uppercase font-semibold text-lg text-gray-800">jamil <span
-                    class="italic font-light opacity-60">fayad</span></div>
+            <div class="font-serif uppercase font-semibold sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-800">
+                jamil <span class="italic font-light opacity-60">fayad</span></div>
             <div class="w-1/4">
-                <ul class="font-sans flex flex-row justify-end uppercase text-sm font-medium text-gray-700">
+                <ul
+                    class="font-sans flex flex-row justify-end uppercase sm:text-xsmd:text-sm lg:text-sm xl:text-base font-medium text-gray-700">
                     <li class="hover:cursor-pointer hover:text-black transition-all duration-200 ease-linear">about</li>
                     <li class="hover:cursor-pointer hover:text-black ml-8 transition-all duration-100 ease-linear">
                         projects</li>
@@ -31,21 +32,30 @@
         <div class="col-span-5 col-start-2 row-span-4 row-start-2 bg-amber-50/90 rounded-xl relative p-10">
             <img class="w-20 h-20 absolute right-10 animate-[spin_10s_linear_infinite] opacity-60"
                 src="./assets/circularGraphicIcon.png" alt="Circular graphic">
-            <h2 class="font-serif font-medium xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-gray-900 absolute bottom-20 w-10/12">Créons ensemble des <span
-                    class="italic font-extralight opacity-60">expériences</span><br> web intuitives et performantes qui
+            <h2
+                class="font-serif font-medium xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-gray-900 absolute bottom-20 w-10/12">
+                Créons ensemble des <span class="italic font-extralight opacity-60">expériences</span><br> web
+                intuitives et performantes qui
                 donneront vie à vos idées.</h2>
         </div>
         <div class="col-span-2 row-span-4 col-start-7 row-start-2 bg-zinc-700 rounded-xl">2</div>
         <div class="col-span-3 row-span-6 col-start-9 row-start-2 bg-amber-50/90 rounded-xl">3</div>
         <div class="col-span-4 col-start-2 row-span-3 row-start-6 bg-amber-50/90 rounded-xl relative p-4">
-            <img class="w-9 h-9 absolute left-4 animate-[spin_32s_linear_infinite] opacity-100"
-                src="./assets/circularGraphicIcon.png" alt="Circular graphic">
-            <p class="font-sans xs:text-xs sm:text-xs md:text-sm lg:text-base xl:text-base font-medium text-gray-800 absolute bottom-10 w-8/12">Je suis un développeur
+            <img class="w-12 h-12 absolute left-10 top-10 opacity-20" src="./assets/circularGraphicIcon2.png"
+                alt="Circular graphic">
+            <p
+                class="font-sans xs:text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm font-medium text-gray-800 absolute bottom-14 left-10 w-8/12">
+                Je suis un développeur
                 web passionné par la création d'expériences numériques intuitives et performantes. Actuellement étudiant
                 en développement web, je suis toujours en quête de nouvelles connaissances et de défis à relever.</p>
-            
+
         </div>
-        <div class="col-span-3 row-span-3 col-start-6 row-start-6 bg-zinc-700 rounded-xl">5</div>
+        <div class="col-span-3 row-span-3 col-start-6 row-start-6 bg-zinc-700 rounded-xl p-10">
+            <p
+                class="font-sans xs:text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm text-amber-50/90 font-medium flex text-center">
+                Vous avez des <br> questions?</p>
+            <i class="fa-thin fa-arrow-down"></i>
+        </div>
         <div class="col-span-3 col-start-9 row-start-8 bg-amber-50/90 rounded-xl">6</div>
     </div>
 
