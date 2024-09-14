@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         serif: ['Georgia', 'serif'],
       },
+      rotate: {
+        '135': '135deg',
+      }
     },
   },
   plugins: [],

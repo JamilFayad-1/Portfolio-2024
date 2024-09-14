@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio made using tailwind and gsap</title>
     <link rel="stylesheet" href="../dist/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
 <body class="w-screen h-screen bg-black">
@@ -20,7 +19,7 @@
                 jamil <span class="italic font-light opacity-60">fayad</span></div>
             <div class="w-1/4">
                 <ul
-                    class="font-sans flex flex-row justify-end uppercase sm:text-xsmd:text-sm lg:text-sm xl:text-base font-medium text-gray-700">
+                    class="font-sans flex flex-row justify-end uppercase sm:text-xs md:text-sm lg:text-sm xl:text-base font-medium text-gray-700">
                     <li class="hover:cursor-pointer hover:text-black transition-all duration-200 ease-linear">about</li>
                     <li class="hover:cursor-pointer hover:text-black ml-8 transition-all duration-100 ease-linear">
                         projects</li>
@@ -39,7 +38,14 @@
                 donneront vie à vos idées.</h2>
         </div>
         <div class="col-span-2 row-span-4 col-start-7 row-start-2 bg-zinc-700 rounded-xl">2</div>
-        <div class="col-span-3 row-span-6 col-start-9 row-start-2 bg-amber-50/90 rounded-xl">3</div>
+        <div class="col-span-3 row-span-6 col-start-9 row-start-2 bg-amber-50/90 rounded-xl p-10">
+            <div class="relative w-full h-16 flex items-center justify-between">
+                <header class="font-serif font-medium xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-gray-900">Projets</header>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 30" class="w-6 h-6 -rotate-135 text-gray-900">
+                    <path d="M11.293,22.707a1,1,0,0,0,1.414,0l6-6a1,1,0,0,0-1.414-1.414L13,19.586V2a1,1,0,0,0-2,0V19.586L6.707,15.293a1,1,0,0,0-1.414,1.414Z" class="fill-current"/>
+                </svg>
+            </div>
+        </div>
         <div class="col-span-4 col-start-2 row-span-3 row-start-6 bg-amber-50/90 rounded-xl relative p-4">
             <img class="w-12 h-12 absolute left-10 top-10 opacity-20" src="./assets/circularGraphicIcon2.png"
                 alt="Circular graphic">
@@ -50,13 +56,24 @@
                 en développement web, je suis toujours en quête de nouvelles connaissances et de défis à relever.</p>
 
         </div>
-        <div class="col-span-3 row-span-3 col-start-6 row-start-6 bg-zinc-700 rounded-xl p-10">
-            <p
-                class="font-sans xs:text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm text-amber-50/90 font-medium flex text-center">
-                Vous avez des <br> questions?</p>
-            <i class="fa-thin fa-arrow-down"></i>
+        <div class="col-span-3 row-span-3 col-start-6 row-start-6 bg-zinc-700 rounded-xl p-8">
+            <div class="relative w-full h-1/5 flex items-center justify-between">
+                <p
+                    class="font-sans xs:text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm text-amber-50/90 font-medium flex text-center">
+                    Vous avez des <br> questions?</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 30" class="w-8 h-8 -rotate-135 text-amber-50/90">
+                    <path d="M11.293,22.707a1,1,0,0,0,1.414,0l6-6a1,1,0,0,0-1.414-1.414L13,19.586V2a1,1,0,0,0-2,0V19.586L6.707,15.293a1,1,0,0,0-1.414,1.414Z" class="fill-current"/>
+                </svg>
+            </div>
+            <h1 class="absolute bottom-10 font-serif font-medium xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl text-amber-50/90">Contactez<span class="italic text-amber-50/70 font-light">-moi</span></h1>
         </div>
-        <div class="col-span-3 col-start-9 row-start-8 bg-amber-50/90 rounded-xl">6</div>
+        <div class="col-span-3 col-start-9 row-start-8 bg-amber-50/90 rounded-xl">
+            <ul class="font-sans w-full h-full flex flex-row items-center justify-around uppercase sm:text-xs md:text-xs lg:text-sm xl:text-sm font-medium text-gray-700">
+                <li class="hover:cursor-pointer hover:text-black transition-all duration-200 ease-linear">linkedin</li>
+                <li class="hover:cursor-pointer hover:text-black transition-all duration-200 ease-linear">instagram</li>
+                <li class="hover:cursor-pointer hover:text-black transition-all duration-200 ease-linear">github</li>
+            </ul>
+        </div>
     </div>
 
 
