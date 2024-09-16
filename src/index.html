@@ -24,7 +24,7 @@
                 </div>
             </a>
 
-            <div class="w-1/4">
+            <div class="min-w-1/4 max-w-3/4">
                 <ul
                     class="font-sans flex flex-row justify-end uppercase bigPhone:text-xs sm:text-xs md:text-xs lg:text-sm xl:text-sm font-medium text-gray-700">
                     <li class="hover:cursor-pointer hover:text-black transition-all duration-200 ease-linear">à propos
@@ -83,16 +83,20 @@
         <div
             class="flex items-end lg:col-span-4 lg:col-start-2 lg:row-span-3 lg:row-start-6 bg-amber-50/90 rounded-xl relative sm:p-4 md:p-6 lg:p-18 
             bigPhone:col-span-12 bigPhone:row-span-2 bigPhone:col-start-1 bigPhone:row-start-9 sm:col-span-12 sm:col-start-1 sm:row-span-2 sm:row-start-5 md:col-span-7 md:row-span-4 md:col-start-1 md:row-start-6">
-            <img class="bigPhone:w-8 bigPhone:h-8 sm:w-10 sm:h-10 w-12 h-12 absolute bigPhone:top-8 left-10 top-10 opacity-20" src="./assets/circularGraphicIcon2.png"
-                alt="Circular graphic">
+            <img class="bigPhone:w-8 bigPhone:h-8 sm:w-10 sm:h-10 w-12 h-12 absolute bigPhone:top-8 left-10 top-10 opacity-20"
+                src="./assets/circularGraphicIcon2.png" alt="Circular graphic">
             <div class="relative w-full h-1/2 flex justify-between items-center">
-                <p
-                class="font-sans bigPhone:text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-medium text-gray-800 sm:p-4 md:p-1 bigPhone:p-8 lg:p-1 w-4/6 bigPhone:w-9/12 md:w-9/12 lg:w-5/6">
-                Je suis un développeur
-                web passionné par la création d'expériences numériques intuitives et performantes. Actuellement étudiant
-                en développement web, je suis toujours en quête de nouvelles connaissances et de défis à relever.</p>
+                <p id="texteAProposAccueil"
+                    class="font-sans bigPhone:text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-medium text-gray-800 sm:p-4 md:p-1 bigPhone:p-8 lg:p-1 w-4/6 bigPhone:w-9/12 md:w-9/12 lg:w-5/6">
+                    Je suis un développeur
+                    web passionné par la création d'expériences numériques intuitives et performantes. Actuellement
+                    étudiant
+                    en développement web, je suis toujours en quête de nouvelles connaissances et de défis à relever.
+                </p>
 
-                <img class="bigPhone:w-6 bigPhone:h-6 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-12 lg:h-12 grayscale transition-all opacity-40 hover:opacity-80 hover:cursor-pointer" src="/src/assets/arrowRightThick.png" alt="arrow right">
+                <img id="btnProchainTexte"
+                    class="bigPhone:mr-16 sm:mr-16 md:mr-8 lg:mr-8 xl:mr-2 bigPhone:w-8 bigPhone:h-8 sm:w-8 sm:h-8 md:w-8 md:h-8 lg:w-12 lg:h-12 grayscale transition-all opacity-40 hover:opacity-80 hover:cursor-pointer"
+                    src="/src/assets/arrowRightThick.png" alt="arrow right">
             </div>
         </div>
         <div
@@ -126,7 +130,7 @@
     </div>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/TextPlugin.min.js"></script>
     <script src="../node_modules/gsap/dist/gsap.min.js"></script>
     <script src="./app.js"></script>
 </body>

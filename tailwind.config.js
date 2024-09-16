@@ -20,6 +20,9 @@ module.exports = {
         'span-1/2': 'span 0.5 / span 0.5',
         'span-1.5': 'span 1.5 / span 1.5',
       },
+      animation: {
+        pulse: 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) forwards',
+      }
     },
   },
   plugins: [],
