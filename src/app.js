@@ -2,6 +2,9 @@ gsap.registerPlugin(TextPlugin);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+    
+
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
 
@@ -43,4 +46,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+
+    const sectionAccueilConnita = document.getElementById('projetConnita');
+    const sectionAccueilWonders = document.getElementById('projetWonders');
+    const sectionAccueilJSP = document.getElementById('projetJSP');
+
+    const listeProjets = [];
+    listeProjets.push(sectionAccueilConnita, sectionAccueilWonders, sectionAccueilJSP);
+    listeProjets.forEach(projet => {
+        projet.addEventListener('click', function() {
+
+            if(projet.querySelector('img').classList.contains('hidden')){
+                listeProjets.forEach(projet2 => {
+                    projet2.querySelector('h2').classList.remove('hidden');
+                    projet2.querySelector('img').classList.add('hidden');
+                })
+                projet.querySelector('h2').classList.add('hidden');
+                projet.querySelector('img').classList.remove('hidden');
+                gsap.fromTo(projet.querySelector('img'), {
+                    opacity: 0,
+                }, {
+                    opacity: 1,
+                    duration: 1,
+                    ease: 'power1.inOut',
+                })
+            }
+        });
+    });
+
+
+    sectionAccueilConnita.click();
 });
