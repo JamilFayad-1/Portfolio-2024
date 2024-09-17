@@ -2,8 +2,17 @@ gsap.registerPlugin(TextPlugin);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const header = document.getElementById('header');
+    const experience = document.getElementById('experience');
+    const image = document.getElementById('image');
+    const projets = document.getElementById('projets');
+    const propos = document.getElementById('propos');
+    const contact = document.getElementById('contact');
+    const liens = document.getElementById('liens');
+    let introTimeline = gsap.timeline({
+        
+    });
 
-    
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
