@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
     }, {
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2.2
     })
 
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
     }, {
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2.4
     })
 
@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {
         scale: 1,
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2
     })
 
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
     }, {
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2.6
     })
 
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
     }, {
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2.2
     })
 
@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
     }, {
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2.4
     })
 
@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
     }, {
         opacity: 1,
-        duration: 1,
-        ease: 'power1.inOut',
+        duration: 1.5,
+        ease: 'power2.inOut',
         delay: 2.5
     })
 
