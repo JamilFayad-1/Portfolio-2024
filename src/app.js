@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const liens = document.getElementById('liens');
     const welcomeMessage = document.getElementById('welcomeMessage');
 
-    gsap.fromTo(welcomeMessage.querySelector('h1'), {
+    let animationInitiale = gsap.timeline({ paused: false });
+
+    animationInitiale.fromTo(welcomeMessage.querySelector('h1'), {
         text: '',
     }, {
         duration: 1,
@@ -20,79 +22,63 @@ document.addEventListener('DOMContentLoaded', () => {
         preserveSpaces: true,
         ease: 'power1.inOut'
     })
-
-    gsap.to(welcomeMessage, {
-        opacity: 0,
-        duration: 1,
-        ease: 'power1.inOut',
-        delay: 1
-    })
-    
-    gsap.fromTo(header, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2.2
-    })
-
-    gsap.fromTo(experience, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2.4
-    })
-
-    gsap.fromTo(image, {
-        scale: 0.9,
-        opacity: 0
-    }, {
-        scale: 1,
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2
-    })
-
-    gsap.fromTo(projets, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2.6
-    })
-
-    gsap.fromTo(propos, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2.2
-    })
-
-    gsap.fromTo(contact, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2.4
-    })
-
-    gsap.fromTo(liens, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1.5,
-        ease: 'power2.inOut',
-        delay: 2.5
-    })
-
+        .to(welcomeMessage, {
+            opacity: 0,
+            duration: 1,
+            ease: 'power1.inOut',
+            delay: 1
+        })
+        .fromTo(header, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        },)
+        .fromTo(experience, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<")
+        .fromTo(image, {
+            scale: 0.9,
+            opacity: 0
+        }, {
+            scale: 1,
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<")
+        .fromTo(projets, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<0.2")
+        .fromTo(propos, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<0.2")
+        .fromTo(contact, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<")
+        .fromTo(liens, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<");
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
@@ -143,9 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const listeProjets = [];
     listeProjets.push(sectionAccueilConnita, sectionAccueilWonders, sectionAccueilJSP);
     listeProjets.forEach(projet => {
-        projet.addEventListener('click', function() {
+        projet.addEventListener('click', function () {
 
-            if(projet.querySelector('img').classList.contains('hidden')){
+            if (projet.querySelector('img').classList.contains('hidden')) {
                 listeProjets.forEach(projet2 => {
                     projet2.querySelector('h2').classList.remove('hidden');
                     projet2.querySelector('img').classList.add('hidden');
@@ -162,6 +148,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+
+    const contactezMoiPopupContainer = document.getElementById('contactezMoiPopupContainer');
+    const contactezMoiPopup = document.getElementById('contactezMoiPopup');
+    const closeContactezMoiPopup = document.getElementById('closeContactezMoiPopup');
+
+    contact.addEventListener('click', function(){
+        contactezMoiPopupContainer.classList.add('pointer-events-auto');
+        contactezMoiPopup.classList.add('pointer-events-auto');
+        contactezMoiPopupContainer.classList.add('bg-gray-900/60');
+        gsap.to(contactezMoiPopup, {
+            y: 0,
+            duration: 1.5,
+            ease: 'power3.inOut'
+        })
+    })
+
+    closeContactezMoiPopup.addEventListener('click', function(){
+        gsap.to(contactezMoiPopup, {
+            y: "-100%",
+            duration: 1.5,
+            ease: "power3.inOut"
+        })
+        setTimeout(() => {
+            contactezMoiPopupContainer.classList.remove('pointer-events-auto');
+        contactezMoiPopup.classList.remove('pointer-events-auto');
+        contactezMoiPopupContainer.classList.add('pointer-events-none');
+        contactezMoiPopup.classList.add('pointer-events-none');
+        contactezMoiPopupContainer.classList.remove('bg-gray-900/60');
+        }, 1000)
+    })
 
 
     sectionAccueilConnita.click();

@@ -14,7 +14,7 @@ module.exports = {
       },
       screens: {
         'bigPhone': {'max': '640px'},
-        'phone' : {'max': '450'},
+        'phone' : {'max': '450px'},
       },
       gridRow: {
         'span-1/2': 'span 0.5 / span 0.5',
