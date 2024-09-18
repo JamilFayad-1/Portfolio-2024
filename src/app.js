@@ -1,4 +1,5 @@
 gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(Flip);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,9 +10,88 @@ document.addEventListener('DOMContentLoaded', () => {
     const propos = document.getElementById('propos');
     const contact = document.getElementById('contact');
     const liens = document.getElementById('liens');
-    let introTimeline = gsap.timeline({
-        
-    });
+    const welcomeMessage = document.getElementById('welcomeMessage');
+
+    gsap.fromTo(welcomeMessage.querySelector('h1'), {
+        text: '',
+    }, {
+        duration: 1,
+        text: 'bienvenue',
+        preserveSpaces: true,
+        ease: 'power1.inOut'
+    })
+
+    gsap.to(welcomeMessage, {
+        opacity: 0,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 1
+    })
+    
+    gsap.fromTo(header, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2.2
+    })
+
+    gsap.fromTo(experience, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2.4
+    })
+
+    gsap.fromTo(image, {
+        scale: 0.9,
+        opacity: 0
+    }, {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2
+    })
+
+    gsap.fromTo(projets, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2.6
+    })
+
+    gsap.fromTo(propos, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2.2
+    })
+
+    gsap.fromTo(contact, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2.4
+    })
+
+    gsap.fromTo(liens, {
+        opacity: 0,
+    }, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+        delay: 2.5
+    })
 
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
