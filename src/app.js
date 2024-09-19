@@ -134,11 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (projet.querySelector('img').classList.contains('hidden')) {
                 listeProjets.forEach(projet2 => {
                     projet2.querySelector('h2').classList.remove('hidden');
-                    projet2.querySelector('img').classList.add('hidden');
+                    projet2.querySelector('div').classList.add('hidden');
+                    projet2.querySelector('div').addEventListener('mouseover', function(){
+
+                    })
                 })
                 projet.querySelector('h2').classList.add('hidden');
-                projet.querySelector('img').classList.remove('hidden');
-                gsap.fromTo(projet.querySelector('img'), {
+                projet.querySelector('div').classList.remove('hidden');
+                gsap.fromTo(projet.querySelector('div'), {
                     opacity: 0,
                 }, {
                     opacity: 1,
