@@ -160,7 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
+    const ouvrirBtn = document.getElementById('ouvrirThemePickerSliderBtn');
+    const ouvrirInfo = document.getElementById('ouvrirThemePickerSliderInfo');
+    const fermerBtn = document.getElementById('fermerThemePickerSliderBtn');
+    const fermerInfo = document.getElementById('fermerThemePickerSliderInfo');
+    const sliderContainer = document.getElementById('ThemePickerSliderContainer');
     const contactezMoiPopupContainer = document.getElementById('contactezMoiPopupContainer');
     const contactezMoiPopup = document.getElementById('contactezMoiPopup');
     const closeContactezMoiPopup = document.getElementById('closeContactezMoiPopup');
@@ -237,7 +241,54 @@ document.addEventListener('DOMContentLoaded', () => {
             elementBody.style.backgroundColor = `rgb(${valeurCouleur}, ${valeurCouleur}, ${valeurCouleur})`;
             conteneurCurseur.style.backgroundColor = `rgb(${couleurInversee}, ${couleurInversee}, ${couleurInversee})`;
             conteneurCurseur.style.boxShadow = `0 0 10px 2px rgb(${couleurInversee}, ${couleurInversee}, ${couleurInversee})`;
+            if(pourcentage > 0.5){
+                header.classList.add('bg-slate-300');
+                experience.classList.add('bg-slate-300');
+                projets.classList.add('bg-slate-300');
+                propos.classList.add('bg-slate-300');
+                liens.classList.add('bg-slate-300');
+                ouvrirBtn.classList.add('bg-gray-900');
+                ouvrirInfo.classList.add('bg-gray-900');
+                ouvrirInfo.querySelector('p').classList.add('text-white');
+            }else {
+                header.classList.remove('bg-slate-300');
+                experience.classList.remove('bg-slate-300');
+                projets.classList.remove('bg-slate-300');
+                propos.classList.remove('bg-slate-300');
+                liens.classList.remove('bg-slate-300');
+                ouvrirBtn.classList.remove('bg-gray-900');
+                ouvrirInfo.classList.remove('bg-gray-900');
+                ouvrirInfo.querySelector('p').classList.remove('text-white');
+            }
         }
+    });
+
+    ouvrirBtn.addEventListener('mouseenter', () => {
+        ouvrirInfo.classList.remove('opacity-0');
+    });
+
+    ouvrirBtn.addEventListener('mouseleave', () => {
+        ouvrirInfo.classList.add('opacity-0');
+    });
+
+    fermerBtn.addEventListener('mouseenter', () => {
+        fermerInfo.classList.remove('opacity-0');
+    });
+
+    fermerBtn.addEventListener('mouseleave', () => {
+        fermerInfo.classList.add('opacity-0');
+    });
+
+    ouvrirBtn.addEventListener('click', () => {
+        sliderContainer.classList.remove('translate-x-full');
+        ouvrirBtn.classList.add('opacity-0');
+        ouvrirInfo.classList.add('opacity-0');
+    });
+
+    fermerBtn.addEventListener('click', () => {
+        sliderContainer.classList.add('translate-x-full');
+        ouvrirBtn.classList.remove('opacity-0');
+        fermerInfo.classList.add('opacity-0');
     });
 
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../dist/styles.css">
 </head>
 
-<body class="w-screen h-full bg-black overflow-y-scroll overflow-x-hidden custom-scrollbar">
+<body class="w-screen h-full bg-black overflow-y-scroll lg:overflow-y-hidden xl:overflow-y-hidden overflow-x-hidden">
 
     <div id="welcomeMessage" class="z-0 absolute w-screen h-screen flex items-center justify-around">
         <h1 class="uppercase font-serif text-white bigPhone:text-lg sm:text-lg md:text-2xl lg:text-5xl xl:text-6xl">
@@ -51,10 +51,27 @@
         </div>
     </div>
 
-    <div class="absolute w-screen h-screen flex justify-end hidden lg:flex xl:flex">
-        <div class="z-50 w-1/12 h-full flex items-center justify-around mr-2">
+    <div
+        class="absolute w-screen h-screen flex items-center justify-end lg:flex xl:flex">
+        <div id="ThemePickerSliderContainer"
+            class="relative z-50 w-1/12 h-[650px] flex items-center justify-around backdrop-blur-2xl bg-amber-50/80 rounded-l-3xl transition-all duration-300 transform translate-x-full">
+            <div id="ouvrirThemePickerSliderBtn"
+                class="absolute -left-6 top-1/2 transform -translate-y-1/2 w-2 h-6 rounded-full bg-white transition-all hover:cursor-pointer hover:scale-125">
+            </div>
+            <div id="ouvrirThemePickerSliderInfo"
+                class="absolute -left-24 top-1/2 transform -translate-y-1/2 w-16 h-6 rounded-lg bg-white transition-all flex items-center justify-around pointer-events-none opacity-0">
+                <p class="font-sans font-semibold text-md text-gray-900">ouvrir</p>
+            </div>
             <div id="conteneur-curseur" class="conteneur-curseur">
-                <img id="bouton-curseur" src="assets/mettalicBtn.png" class="bouton-curseur" alt="mettalic button">
+                <img id="bouton-curseur" src="assets/mettalicBtn.png" class="bouton-curseur brightness-125"
+                    alt="mettalic button">
+            </div>
+            <div id="fermerThemePickerSliderBtn"
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-6 rounded-full bg-gray-900/80 ml-2 transition-all hover:cursor-pointer hover:scale-125">
+            </div>
+            <div id="fermerThemePickerSliderInfo"
+                class="absolute left-0 top-1/2 transform -translate-y-1/2 w-16 h-6 rounded-lg bg-gray-900/80 ml-8 transition-all flex items-center justify-around pointer-events-none opacity-0">
+                <p class="font-sans font-semibold text-md text-white">fermer</p>
             </div>
         </div>
     </div>
@@ -95,7 +112,7 @@
         </div>
         <div id="image"
             class="opacity-0 relative overflow-hidden flex items-end justify-around lg:col-span-2 lg:row-span-4 lg:col-start-7 lg:row-start-2 bg-zinc-700 rounded-xl bigPhone:col-span-4 bigPhone:row-span-2 bigPhone:col-start-9 bigPhone:row-start-2 sm:col-span-4 sm:col-start-9 sm:row-span-3 sm:row-start-2 md:col-span-3 md:row-span-4 md:col-start-10 md:row-start-2">
-            <img id="imageInitiale" class="w-40 h-auto" src="" alt="photo of me!">
+            <img id="imageInitiale" class="w-40 h-auto hidden" src="" alt="photo of me!">
         </div>
         <div id="projets"
             class="opacity-0 lg:col-span-3 lg:row-span-6 lg:col-start-9 lg:row-start-2 bg-amber-50/90 rounded-xl p-10 
