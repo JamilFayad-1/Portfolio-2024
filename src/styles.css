@@ -24,3 +24,25 @@
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
   }
+
+  .conteneur-curseur {
+    height: 500px;
+    width: 10px;
+    background-color: #f0f0f0;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px white;
+  }
+
+  .bouton-curseur {
+    width: 10px;
+    height: 10px;
+    background-color: #add9e4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 25px;
+    cursor: pointer;
+    transform: scale(4);
+  }

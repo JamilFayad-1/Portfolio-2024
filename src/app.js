@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const liens = document.getElementById('liens');
     const welcomeMessage = document.getElementById('welcomeMessage');
 
-    let animationInitiale = gsap.timeline({ paused: false });
+    let animationInitiale = gsap.timeline({ paused: true });
 
     animationInitiale.fromTo(welcomeMessage.querySelector('h1'), {
         text: '',
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
+    animationInitiale.progress(1);
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
@@ -131,17 +132,24 @@ document.addEventListener('DOMContentLoaded', () => {
     listeProjets.forEach(projet => {
         projet.addEventListener('click', function () {
 
-            if (projet.querySelector('img').classList.contains('hidden')) {
+            if (projet.querySelector('section').classList.contains('hidden')) {
                 listeProjets.forEach(projet2 => {
                     projet2.querySelector('h2').classList.remove('hidden');
-                    projet2.querySelector('div').classList.add('hidden');
-                    projet2.querySelector('div').addEventListener('mouseover', function(){
-
+                    projet2.querySelector('section').classList.add('hidden');
+                    projet2.querySelector('section').addEventListener('mouseover', function () {
+                        projet2.querySelector('img').classList.remove('grayscale-0')
+                        projet2.querySelector('img').classList.add('grayscale')
+                        projet2.querySelector('p').classList.remove('opacity-0')
+                    })
+                    projet2.querySelector('section').addEventListener('mouseleave', function () {
+                        projet2.querySelector('img').classList.remove('grayscale')
+                        projet2.querySelector('img').classList.add('grayscale-0')
+                        projet2.querySelector('p').classList.add('opacity-0')
                     })
                 })
                 projet.querySelector('h2').classList.add('hidden');
-                projet.querySelector('div').classList.remove('hidden');
-                gsap.fromTo(projet.querySelector('div'), {
+                projet.querySelector('section').classList.remove('hidden');
+                gsap.fromTo(projet.querySelector('section'), {
                     opacity: 0,
                 }, {
                     opacity: 1,
@@ -196,6 +204,40 @@ document.addEventListener('DOMContentLoaded', () => {
         contactezMoiPopupContainer.classList.add('bg-gray-900/60');
 
         contactezPopupOuvert = true;
+    });
+
+    const boutonCurseur = document.getElementById('bouton-curseur');
+    const conteneurCurseur = document.getElementById('conteneur-curseur');
+    const elementBody = document.querySelector('body');
+
+    let estEnTrainDeGlisser = false;
+
+    boutonCurseur.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        estEnTrainDeGlisser = true;
+        document.body.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mouseup', () => {
+        estEnTrainDeGlisser = false;
+        document.body.style.cursor = 'default';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (estEnTrainDeGlisser) {
+            const positionConteneur = conteneurCurseur.getBoundingClientRect();
+            let offsetY = e.clientY - positionConteneur.top;
+
+            offsetY = Math.max(0, Math.min(offsetY, positionConteneur.height - boutonCurseur.clientHeight));
+            boutonCurseur.style.top = `${offsetY}px`;
+
+            const pourcentage = offsetY / (positionConteneur.height - boutonCurseur.clientHeight);
+            const valeurCouleur = Math.round(pourcentage * 255);
+            const couleurInversee = 255 - valeurCouleur;
+            elementBody.style.backgroundColor = `rgb(${valeurCouleur}, ${valeurCouleur}, ${valeurCouleur})`;
+            conteneurCurseur.style.backgroundColor = `rgb(${couleurInversee}, ${couleurInversee}, ${couleurInversee})`;
+            conteneurCurseur.style.boxShadow = `0 0 10px 2px rgb(${couleurInversee}, ${couleurInversee}, ${couleurInversee})`;
+        }
     });
 
 

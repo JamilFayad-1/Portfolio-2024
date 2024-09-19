@@ -15,12 +15,16 @@
             welcome back</h1>
     </div>
 
-    <div id="contactezMoiPopupContainer" class="pointer-events-none transition-colors duration-300 z-50 absolute w-screen h-screen top-0 left-0 flex justify-around">
+    <div id="contactezMoiPopupContainer"
+        class="z-[60] pointer-events-none transition-colors duration-300 z-50 absolute w-screen h-screen top-0 left-0 flex justify-around">
         <div id="contactezMoiPopup"
-            class="pointer-events-none z-[60] relative w-2/6 h-5/6 bg-gray-500/50 backdrop-blur-xl rounded-b-[50px] flex flex-col items-center transform -translate-y-full">
-            <h1 class="font-serif font-semibold text-white bigPhone:text-lg sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl p-12">Contactez-moi</h1>
+            class="pointer-events-none relative w-2/6 h-5/6 bg-gray-500/50 backdrop-blur-xl rounded-b-[50px] flex flex-col items-center transform -translate-y-full">
+            <h1
+                class="font-serif font-semibold text-white bigPhone:text-lg sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl p-12">
+                Contactez-moi</h1>
 
-            <form id="contact-form" action="https://formspree.io/f/xqazvkbd" method="POST" class="relative space-y-8 mt-10 w-11/12 h-full">
+            <form id="contact-form" action="https://formspree.io/f/xqazvkbd" method="POST"
+                class="relative space-y-8 mt-10 w-11/12 h-full">
                 <div>
                     <label for="name" class="block text-gray-700 hidden">Nom</label>
                     <input type="text" id="name" name="name" placeholder="Nom" required
@@ -33,7 +37,7 @@
                 </div>
                 <div>
                     <label for="message" class="block text-gray-700 hidden">Message</label>
-                    <textarea id="message" name="message"  placeholder="Message" required
+                    <textarea id="message" name="message" placeholder="Message" required
                         class="hover:cursor-pointer font-sans font-medium resize-none w-full px-3 py-2 bg-gray-200/50 placeholder-white text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-50/90"></textarea>
                 </div>
                 <button type="submit"
@@ -41,7 +45,17 @@
                     Envoyer
                 </button>
             </form>
-            <p id="closeContactezMoiPopup" class="font-sans font-normal text-white bigPhone:text-md sm:text-md md:text-md lg:text-md xl:text-md px-4 mb-4 hover:cursor-pointer">close</p>
+            <p id="closeContactezMoiPopup"
+                class="font-sans font-normal text-white bigPhone:text-md sm:text-md md:text-md lg:text-md xl:text-md px-4 mb-4 hover:cursor-pointer">
+                close</p>
+        </div>
+    </div>
+
+    <div class="absolute w-screen h-screen flex justify-end hidden lg:flex xl:flex">
+        <div class="z-50 w-1/12 h-full flex items-center justify-around mr-2">
+            <div id="conteneur-curseur" class="conteneur-curseur">
+                <img id="bouton-curseur" src="assets/mettalicBtn.png" class="bouton-curseur" alt="mettalic button">
+            </div>
         </div>
     </div>
 
@@ -102,26 +116,42 @@
                     <h2
                         class="transition-all duration-300 font-serif font-medium xs:text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-gray-800">
                         Connita</h2>
-                    <div class="w-88 h-auto hidden overflow-hidden">
-                        <img class="w-full h-auto py-2 object-cover" src="/src/assets/Connita.png"
-                        alt="image de l'appercu du projet">
-                    </div>
+                    <section
+                        class="relative w-88 h-auto hidden overflow-hidden flex items-center justify-around rounded-3xl">
+                        <img class="transition-all rounded-3xl duration-300 w-full h-auto py-2 object-cover"
+                            src="/src/assets/Connita.png" alt="image de l'appercu du projet">
+                        <p
+                            class="transition-all duration-300 pointer-events-none opacity-0 absolute font-sans font-semibold bigPhone:text-xs sm:text-xs md:text-xs lg:text-sm xl:text-sm font-medium text-gray-900 bg-white rounded-full px-3 py-1">
+                            Ouvrir projet</p>
+                    </section>
                 </div>
                 <div id="projetWonders"
                     class="transition-all duration-300 hover:cursor-pointer relative w-full h-auto min-h-20 flex items-center border-t border-b border-gray-800">
                     <h2
                         class="transition-all duration-300 font-serif font-medium xs:text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-gray-800">
                         Wonders of the world</h2>
-                    <img class="w-88 h-auto py-2 rounded-3xl hidden" src="/src/assets/Wonders.png"
-                        alt="image de l'appercu du projet">
+                    <section
+                        class="relative w-88 h-auto hidden overflow-hidden flex items-center justify-around rounded-3xl">
+                        <img class="transition-all rounded-3xl duration-300 w-full h-auto py-2 object-cover"
+                            src="/src/assets/Connita.png" alt="image de l'appercu du projet">
+                        <p
+                            class="transition-all duration-300 pointer-events-none opacity-0 absolute font-sans font-semibold bigPhone:text-xs sm:text-xs md:text-xs lg:text-sm xl:text-sm font-medium text-gray-900 bg-white rounded-full px-3 py-1">
+                            Ouvrir projet</p>
+                    </section>
                 </div>
                 <div id="projetJSP"
                     class="transition-all duration-300 hover:cursor-pointer relative w-full h-auto min-h-20 flex items-center border-b border-gray-800">
                     <h2
                         class="transition-all duration-300 font-serif font-medium xs:text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-gray-800">
                         jsp encore</h2>
-                    <img class="w-88 h-auto py-2 rounded-3xl hidden" src="/src/assets/Wonders.png"
-                        alt="image de l'appercu du projet">
+                    <section
+                        class="relative w-88 h-auto hidden overflow-hidden flex items-center justify-around rounded-3xl">
+                        <img class="transition-all rounded-3xl duration-300 w-full h-auto py-2 object-cover"
+                            src="/src/assets/Connita.png" alt="image de l'appercu du projet">
+                        <p
+                            class="transition-all duration-300 pointer-events-none opacity-0 absolute font-sans font-semibold bigPhone:text-xs sm:text-xs md:text-xs lg:text-sm xl:text-sm font-medium text-gray-900 bg-white rounded-full px-3 py-1">
+                            Ouvrir projet</p>
+                    </section>
                 </div>
             </div>
         </div>
