@@ -153,32 +153,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactezMoiPopupContainer = document.getElementById('contactezMoiPopupContainer');
     const contactezMoiPopup = document.getElementById('contactezMoiPopup');
     const closeContactezMoiPopup = document.getElementById('closeContactezMoiPopup');
+    let contactezPopupOuvert = false;
 
-    contact.addEventListener('click', function(){
-        contactezMoiPopupContainer.classList.add('pointer-events-auto');
-        contactezMoiPopup.classList.add('pointer-events-auto');
-        contactezMoiPopupContainer.classList.add('bg-gray-900/60');
-        gsap.to(contactezMoiPopup, {
-            y: 0,
-            duration: 1.5,
-            ease: 'power3.inOut'
-        })
-    })
-
-    closeContactezMoiPopup.addEventListener('click', function(){
+    function closePopup() {
         gsap.to(contactezMoiPopup, {
             y: "-100%",
             duration: 1.5,
             ease: "power3.inOut"
-        })
+        });
         setTimeout(() => {
             contactezMoiPopupContainer.classList.remove('pointer-events-auto');
-        contactezMoiPopup.classList.remove('pointer-events-auto');
-        contactezMoiPopupContainer.classList.add('pointer-events-none');
-        contactezMoiPopup.classList.add('pointer-events-none');
-        contactezMoiPopupContainer.classList.remove('bg-gray-900/60');
-        }, 1000)
-    })
+            contactezMoiPopup.classList.remove('pointer-events-auto');
+            contactezMoiPopupContainer.classList.add('pointer-events-none');
+            contactezMoiPopup.classList.add('pointer-events-none');
+            contactezMoiPopupContainer.classList.remove('bg-gray-900/60');
+            contactezPopupOuvert = false;
+        }, 1000);
+    }
+
+    closeContactezMoiPopup.addEventListener('click', closePopup);
+
+    document.addEventListener('click', function (event) {
+        if (contactezPopupOuvert && !contactezMoiPopup.contains(event.target)) {
+            closePopup();
+        }
+    });
+
+    contact.addEventListener('click', function (event) {
+        event.stopPropagation();
+        gsap.to(contactezMoiPopup, {
+            y: "0%",
+            duration: 1.5,
+            ease: "power3.inOut"
+        });
+        contactezMoiPopupContainer.classList.add('pointer-events-auto');
+        contactezMoiPopup.classList.add('pointer-events-auto');
+        contactezMoiPopupContainer.classList.remove('pointer-events-none');
+        contactezMoiPopup.classList.remove('pointer-events-none');
+        contactezMoiPopupContainer.classList.add('bg-gray-900/60');
+
+        contactezPopupOuvert = true;
+    });
 
 
     sectionAccueilConnita.click();
