@@ -235,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.cursor = 'default';
     });
 
+    /* Mouse move pour le slider de couleur */
     document.addEventListener('mousemove', (e) => {
         if (estEnTrainDeGlisser) {
             const positionConteneur = conteneurCurseur.getBoundingClientRect();
