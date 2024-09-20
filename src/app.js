@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contact = document.getElementById('contact');
     const liens = document.getElementById('liens');
     const welcomeMessage = document.getElementById('welcomeMessage');
+    const ThemePickerLayout = document.getElementById('ThemePickerLayout');
 
-    let animationInitiale = gsap.timeline({ paused: true });
+    let animationInitiale = gsap.timeline({ paused: false });
 
     animationInitiale.fromTo(welcomeMessage.querySelector('h1'), {
         text: '',
@@ -72,6 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<")
+        .fromTo(ThemePickerLayout, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1.5,
+            ease: 'power2.inOut'
+        }, "<")
         .fromTo(liens, {
             opacity: 0,
         }, {
@@ -79,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
-    animationInitiale.progress(1);
+    /* animationInitiale.progress(1); */
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
@@ -247,9 +255,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 projets.classList.add('bg-slate-300');
                 propos.classList.add('bg-slate-300');
                 liens.classList.add('bg-slate-300');
+                ouvrirBtn.classList.remove('bg-white');
                 ouvrirBtn.classList.add('bg-gray-900');
+                ouvrirInfo.classList.remove('bg-white');
                 ouvrirInfo.classList.add('bg-gray-900');
+                ouvrirInfo.querySelector('p').classList.remove('text-black');
                 ouvrirInfo.querySelector('p').classList.add('text-white');
+                sliderContainer.classList.remove('bg-amber-50/40');
+                sliderContainer.classList.add('bg-slate-300');
             }else {
                 header.classList.remove('bg-slate-300');
                 experience.classList.remove('bg-slate-300');
@@ -257,8 +270,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 propos.classList.remove('bg-slate-300');
                 liens.classList.remove('bg-slate-300');
                 ouvrirBtn.classList.remove('bg-gray-900');
+                ouvrirBtn.classList.add('bg-white');
                 ouvrirInfo.classList.remove('bg-gray-900');
+                ouvrirInfo.classList.add('bg-white');
                 ouvrirInfo.querySelector('p').classList.remove('text-white');
+                ouvrirInfo.querySelector('p').classList.add('text-black');
+                sliderContainer.classList.remove('bg-slate-300');
+                sliderContainer.classList.add('bg-amber-50/40');
             }
         }
     });
