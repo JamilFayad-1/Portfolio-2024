@@ -1,6 +1,6 @@
-/dist
+/src/dist
 
-/node_modules
+/src/node_modules
 
 .env
 

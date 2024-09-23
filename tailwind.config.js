@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js}",
+    "!./src/node_modules/**",
+    "!./src/dist/**"],
   theme: {
     extend: {
       fontFamily: {
@@ -13,8 +15,8 @@ module.exports = {
         '13': 'repeat(13, minmax(0, 1fr))',
       },
       screens: {
-        'bigPhone': {'max': '640px'},
-        'phone' : {'max': '450px'},
+        'bigPhone': { 'max': '640px' },
+        'phone': { 'max': '450px' },
       },
       gridRow: {
         'span-1/2': 'span 0.5 / span 0.5',
