@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeMessage = document.getElementById('welcomeMessage');
     const ThemePickerLayout = document.getElementById('ThemePickerLayout');
 
-    let animationInitiale = gsap.timeline({ paused: false });
+    let animationInitiale = gsap.timeline({ paused: true });
 
     animationInitiale.fromTo(welcomeMessage.querySelector('h1'), {
         text: '',
@@ -87,11 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
-    /* animationInitiale.progress(1); */
+     animationInitiale.progress(1); 
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
 
+    const imageNombre1 = document.getElementById('nombre1Propos');
+    const imageNombre2 = document.getElementById('nombre2Propos');
+    const imageNombre3 = document.getElementById('nombre3Propos');
     let texteIndex = 0;
     /* Event listener pour le bouton click next sur la section a propos dans la page accueil */
     btnProchainTexte.addEventListener('click', function () {
@@ -112,6 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: "power3.inOut",
                 preserveSpaces: true,
             });
+            gsap.to(imageNombre3, {
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            })
+            gsap.to(imageNombre1, {
+                opacity: 0.2,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            })
         } else if (texteIndex == 1) {
             gsap.to(textAProposDeMoi, {
                 speed: 1,
@@ -119,6 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: "power3.inOut",
                 preserveSpaces: true,
             });
+            gsap.to(imageNombre1, {
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            })
+            gsap.to(imageNombre2, {
+                opacity: 0.2,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            })
         } else {
             gsap.to(textAProposDeMoi, {
                 speed: 1,
@@ -126,19 +149,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: "power3.inOut",
                 preserveSpaces: true,
             });
+            gsap.to(imageNombre2, {
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            })
+            gsap.to(imageNombre3, {
+                opacity: 0.2,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            })
             texteIndex = -1;
         }
     })
-
 
     const sectionAccueilConnita = document.getElementById('projetConnita');
     const sectionAccueilWonders = document.getElementById('projetWonders');
     const sectionAccueilJSP = document.getElementById('projetJSP');
 
     const listeProjets = [];
+    let currentIndexProjetBoucles = 0;
+    let intervalId;
     listeProjets.push(sectionAccueilConnita, sectionAccueilWonders, sectionAccueilJSP);
-    listeProjets.forEach(projet => {
+    listeProjets.forEach((projet, index) => {
         projet.addEventListener('click', function () {
+            currentIndexProjetBoucles = index;
 
             if (projet.querySelector('section').classList.contains('hidden')) {
                 listeProjets.forEach(projet2 => {
@@ -165,8 +200,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     ease: 'power1.inOut',
                 })
             }
+
+            resetInterval();
+
         });
     });
+
+    sectionAccueilConnita.click();
+
+    function projetsBoucle() {
+        listeProjets[currentIndexProjetBoucles].click();
+        currentIndexProjetBoucles++;
+
+        if (currentIndexProjetBoucles >= listeProjets.length) {
+            currentIndexProjetBoucles = 0;
+        }
+    }
+
+    function resetInterval() {
+        clearInterval(intervalId);
+        intervalId = setInterval(projetsBoucle, 6000);
+    }
+    
+    resetInterval();
 
     const ouvrirBtn = document.getElementById('ouvrirThemePickerSliderBtn');
     const ouvrirInfo = document.getElementById('ouvrirThemePickerSliderInfo');
@@ -250,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             elementBody.style.backgroundColor = `rgb(${valeurCouleur}, ${valeurCouleur}, ${valeurCouleur})`;
             conteneurCurseur.style.backgroundColor = `rgb(${couleurInversee}, ${couleurInversee}, ${couleurInversee})`;
             conteneurCurseur.style.boxShadow = `0 0 10px 2px rgb(${couleurInversee}, ${couleurInversee}, ${couleurInversee})`;
-            if(pourcentage > 0.5){
+            if (pourcentage > 0.5) {
                 header.classList.add('bg-slate-300');
                 experience.classList.add('bg-slate-300');
                 projets.classList.add('bg-slate-300');
@@ -264,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ouvrirInfo.querySelector('p').classList.add('text-white');
                 sliderContainer.classList.remove('bg-amber-50/40');
                 sliderContainer.classList.add('bg-slate-300');
-            }else {
+            } else {
                 header.classList.remove('bg-slate-300');
                 experience.classList.remove('bg-slate-300');
                 projets.classList.remove('bg-slate-300');
@@ -309,7 +365,4 @@ document.addEventListener('DOMContentLoaded', () => {
         ouvrirBtn.classList.remove('opacity-0');
         fermerInfo.classList.add('opacity-0');
     });
-
-
-    sectionAccueilConnita.click();
 });
