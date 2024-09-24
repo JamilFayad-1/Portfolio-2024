@@ -95,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageNombre1 = document.getElementById('nombre1Propos');
     const imageNombre2 = document.getElementById('nombre2Propos');
     const imageNombre3 = document.getElementById('nombre3Propos');
+
+    const proposSection1Indicateur = document.getElementById('proposSection1Indicateur');
+    const proposSection2Indicateur = document.getElementById('proposSection2Indicateur');
+    const proposSection3Indicateur = document.getElementById('proposSection3Indicateur');
+
     let texteIndex = 0;
     /* Event listener pour le bouton click next sur la section a propos dans la page accueil */
     btnProchainTexte.addEventListener('click', function () {
@@ -125,6 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 0.8,
                 ease: 'power2.inOut'
             })
+            setTimeout(() => {
+                proposSection3Indicateur.classList.remove('bg-gray-900/70');
+                    proposSection3Indicateur.classList.add('bg-gray-900/20');
+                    proposSection1Indicateur.classList.remove('bg-gray-900/20');
+                    proposSection1Indicateur.classList.add('bg-gray-900/70');
+            }, 600)
+            
         } else if (texteIndex == 1) {
             gsap.to(textAProposDeMoi, {
                 speed: 1,
@@ -142,6 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 0.8,
                 ease: 'power2.inOut'
             })
+            setTimeout(() => {
+                proposSection1Indicateur.classList.remove('bg-gray-900/70');
+                    proposSection1Indicateur.classList.add('bg-gray-900/20');
+                    proposSection2Indicateur.classList.remove('bg-gray-900/20');
+                    proposSection2Indicateur.classList.add('bg-gray-900/70');
+            }, 600)
         } else {
             gsap.to(textAProposDeMoi, {
                 speed: 1,
@@ -159,6 +177,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 0.8,
                 ease: 'power2.inOut'
             })
+            setTimeout(() => {
+                proposSection2Indicateur.classList.remove('bg-gray-900/70');
+                    proposSection2Indicateur.classList.add('bg-gray-900/20');
+                    proposSection3Indicateur.classList.remove('bg-gray-900/20');
+                    proposSection3Indicateur.classList.add('bg-gray-900/70');
+            }, 600)
             texteIndex = -1;
         }
     })
@@ -235,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let contactezPopupOuvert = false;
 
     function closePopup() {
+        contactezPopupOuvert = false;
         gsap.to(contactezMoiPopup, {
             y: "-100%",
             duration: 1.5,
@@ -246,7 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
             contactezMoiPopupContainer.classList.add('pointer-events-none');
             contactezMoiPopup.classList.add('pointer-events-none');
             contactezMoiPopupContainer.classList.remove('bg-gray-900/60');
-            contactezPopupOuvert = false;
         }, 1000);
     }
 
