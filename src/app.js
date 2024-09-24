@@ -277,8 +277,10 @@ document.addEventListener('DOMContentLoaded', () => {
     closeContactezMoiPopup.addEventListener('click', closePopup);
 
     document.addEventListener('click', function (event) {
-        if (contactezPopupOuvert && !contactezMoiPopup.contains(event.target)) {
-            closePopup();
+        if (window.innerWidth > 640) {
+            if (contactezPopupOuvert && !contactezMoiPopup.contains(event.target)) {
+                closePopup();
+            }
         }
     });
 
