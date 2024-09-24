@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const liens = document.getElementById('liens');
     const welcomeMessage = document.getElementById('welcomeMessage');
     const ThemePickerLayout = document.getElementById('ThemePickerLayout');
+    const contactMoiNavBtn = document.getElementById('contactMoiNavBtn');
 
     let animationInitiale = gsap.timeline({ paused: true });
 
@@ -276,29 +277,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeContactezMoiPopup.addEventListener('click', closePopup);
 
-    document.addEventListener('click', function (event) {
-        if (window.innerWidth > 640) {
-            if (contactezPopupOuvert && !contactezMoiPopup.contains(event.target)) {
-                closePopup();
-            }
-        }
-    });
-
-    contact.addEventListener('click', function (event) {
-        event.stopPropagation();
-        gsap.to(contactezMoiPopup, {
-            y: "0%",
-            duration: 1.5,
-            ease: "power3.inOut"
+    const contactOuvrirBtnListe = [contact, contactMoiNavBtn];
+    contactOuvrirBtnListe.forEach(btn => {
+        btn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            gsap.to(contactezMoiPopup, {
+                y: "0%",
+                duration: 1.5,
+                ease: "power3.inOut"
+            });
+            contactezMoiPopupContainer.classList.add('pointer-events-auto');
+            contactezMoiPopup.classList.add('pointer-events-auto');
+            contactezMoiPopupContainer.classList.remove('pointer-events-none');
+            contactezMoiPopup.classList.remove('pointer-events-none');
+            contactezMoiPopupContainer.classList.add('bg-gray-900/60');
+    
+            contactezPopupOuvert = true;
         });
-        contactezMoiPopupContainer.classList.add('pointer-events-auto');
-        contactezMoiPopup.classList.add('pointer-events-auto');
-        contactezMoiPopupContainer.classList.remove('pointer-events-none');
-        contactezMoiPopup.classList.remove('pointer-events-none');
-        contactezMoiPopupContainer.classList.add('bg-gray-900/60');
-
-        contactezPopupOuvert = true;
-    });
+    })
 
     const boutonCurseur = document.getElementById('bouton-curseur');
     const conteneurCurseur = document.getElementById('conteneur-curseur');
