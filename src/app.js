@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const propos = document.getElementById('propos');
     const contact = document.getElementById('contact');
     const liens = document.getElementById('liens');
+    const projetAfficherContainer = document.getElementById('projetAfficherContainer');
     const welcomeMessage = document.getElementById('welcomeMessage');
     const ThemePickerLayout = document.getElementById('ThemePickerLayout');
     const contactMoiNavBtn = document.getElementById('contactMoiNavBtn');
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
-     animationInitiale.progress(1); 
+    animationInitiale.progress(1);
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
@@ -133,11 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             setTimeout(() => {
                 proposSection3Indicateur.classList.remove('bg-gray-900/70');
-                    proposSection3Indicateur.classList.add('bg-gray-900/20');
-                    proposSection1Indicateur.classList.remove('bg-gray-900/20');
-                    proposSection1Indicateur.classList.add('bg-gray-900/70');
+                proposSection3Indicateur.classList.add('bg-gray-900/20');
+                proposSection1Indicateur.classList.remove('bg-gray-900/20');
+                proposSection1Indicateur.classList.add('bg-gray-900/70');
             }, 600)
-            
+
         } else if (texteIndex == 1) {
             gsap.to(textAProposDeMoi, {
                 speed: 1,
@@ -157,9 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             setTimeout(() => {
                 proposSection1Indicateur.classList.remove('bg-gray-900/70');
-                    proposSection1Indicateur.classList.add('bg-gray-900/20');
-                    proposSection2Indicateur.classList.remove('bg-gray-900/20');
-                    proposSection2Indicateur.classList.add('bg-gray-900/70');
+                proposSection1Indicateur.classList.add('bg-gray-900/20');
+                proposSection2Indicateur.classList.remove('bg-gray-900/20');
+                proposSection2Indicateur.classList.add('bg-gray-900/70');
             }, 600)
         } else {
             gsap.to(textAProposDeMoi, {
@@ -180,9 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             setTimeout(() => {
                 proposSection2Indicateur.classList.remove('bg-gray-900/70');
-                    proposSection2Indicateur.classList.add('bg-gray-900/20');
-                    proposSection3Indicateur.classList.remove('bg-gray-900/20');
-                    proposSection3Indicateur.classList.add('bg-gray-900/70');
+                proposSection2Indicateur.classList.add('bg-gray-900/20');
+                proposSection3Indicateur.classList.remove('bg-gray-900/20');
+                proposSection3Indicateur.classList.add('bg-gray-900/70');
             }, 600)
             texteIndex = -1;
         }
@@ -200,7 +201,78 @@ document.addEventListener('DOMContentLoaded', () => {
         projet.addEventListener('click', function () {
             currentIndexProjetBoucles = index;
 
-            if (projet.querySelector('section').classList.contains('hidden')) {
+            if (!projet.querySelector('section').classList.contains('hidden')) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                gsap.to(header, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut'
+                })
+                gsap.to(experience, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        experience.classList.add('hidden');
+                    }
+                })
+                gsap.to(image, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        image.classList.add('hidden');
+                    }
+                })
+                gsap.to(projets, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        projets.classList.add('hidden');
+                    }
+                })
+                gsap.to(propos, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        propos.classList.add('hidden');
+                    }
+                })
+                gsap.to(contact, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        contact.classList.add('hidden');
+                    }
+                })
+                gsap.to(liens, {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        liens.classList.add('hidden');
+                    }
+                })
+                setTimeout(() => {
+                    projetAfficherContainer.classList.remove('hidden');
+                    gsap.to(projetAfficherContainer, {
+                        opacity: 1,
+                        duration: 0.6,
+                        ease: 'power2.inOut'
+                    })
+                    gsap.to(header, {
+                        opacity: 1,
+                        duration: 0.6,
+                        ease: 'power2.inOut'
+                    })
+                }, 1000)
+            } else if (projet.querySelector('section').classList.contains('hidden')) {
                 listeProjets.forEach(projet2 => {
                     projet2.querySelector('h2').classList.remove('hidden');
                     projet2.querySelector('section').classList.add('hidden');
@@ -234,8 +306,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionAccueilConnita.click();
 
     function projetsBoucle() {
-        listeProjets[currentIndexProjetBoucles].click();
         currentIndexProjetBoucles++;
+        listeProjets[currentIndexProjetBoucles].click();
 
         if (currentIndexProjetBoucles >= listeProjets.length) {
             currentIndexProjetBoucles = 0;
@@ -246,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(intervalId);
         intervalId = setInterval(projetsBoucle, 6000);
     }
-    
+
     resetInterval();
 
     const ouvrirBtn = document.getElementById('ouvrirThemePickerSliderBtn');
@@ -257,10 +329,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactezMoiPopupContainer = document.getElementById('contactezMoiPopupContainer');
     const contactezMoiPopup = document.getElementById('contactezMoiPopup');
     const closeContactezMoiPopup = document.getElementById('closeContactezMoiPopup');
-    let contactezPopupOuvert = false;
 
     function closePopup() {
-        contactezPopupOuvert = false;
         gsap.to(contactezMoiPopup, {
             y: "-100%",
             duration: 1.5,
@@ -291,8 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
             contactezMoiPopupContainer.classList.remove('pointer-events-none');
             contactezMoiPopup.classList.remove('pointer-events-none');
             contactezMoiPopupContainer.classList.add('bg-gray-900/60');
-    
-            contactezPopupOuvert = true;
         });
     })
 
@@ -342,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ouvrirInfo.querySelector('p').classList.add('text-white');
                 sliderContainer.classList.remove('bg-amber-50/40');
                 sliderContainer.classList.add('bg-slate-300');
+                projetAfficherContainer.classList.add('bg-slate-300');
             } else {
                 header.classList.remove('bg-slate-300');
                 experience.classList.remove('bg-slate-300');
@@ -356,6 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ouvrirInfo.querySelector('p').classList.add('text-black');
                 sliderContainer.classList.remove('bg-slate-300');
                 sliderContainer.classList.add('bg-amber-50/40');
+                projetAfficherContainer.classList.remove('bg-slate-300');
             }
         }
     });
