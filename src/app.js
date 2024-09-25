@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ThemePickerLayout = document.getElementById('ThemePickerLayout');
     const contactMoiNavBtn = document.getElementById('contactMoiNavBtn');
 
-    let animationInitiale = gsap.timeline({ paused: false });
+    let animationInitiale = gsap.timeline({ paused: true });
 
     animationInitiale.fromTo(welcomeMessage.querySelector('h1'), {
         text: '',
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
-      /* animationInitiale.progress(1); */
+       animationInitiale.progress(1);
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
