@@ -3,7 +3,7 @@ gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(Flip);
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const header = document.getElementById('header');
     const experience = document.getElementById('experience');
     const image = document.getElementById('image');
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
-       animationInitiale.progress(1);
+    animationInitiale.progress(1);
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
