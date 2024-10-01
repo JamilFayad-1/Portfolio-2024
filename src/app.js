@@ -2,7 +2,40 @@ import { Connita, Wonders } from './projets.js';
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(Flip);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (event) => {
+
+    const cards = document.querySelectorAll(".card");
+	cards.forEach((e) => {
+        e.addEventListener("mousemove", (event) => {
+            gsap.killTweensOf(e);
+    
+            const rect = e.getBoundingClientRect();
+            const centerX = (rect.left + rect.right) / 2;
+            const centerY = (rect.top + rect.bottom) / 2;
+    
+            const offsetX = event.clientX - centerX;
+            const offsetY = event.clientY - centerY;
+    
+            const rotateX = offsetY * 0.09;
+            const rotateY = offsetX * 0.125;
+    
+            gsap.to(e, {
+                rotateX: -rotateX,
+                rotateY: rotateY,
+            });
+        });
+    
+        e.addEventListener("mouseout", () => {
+            gsap.to(e, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 1,
+                ease: 'power3.inOut'
+            });
+        });
+    });
+    
+    
 
     const header = document.getElementById('header');
     const experience = document.getElementById('experience');
@@ -16,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ThemePickerLayout = document.getElementById('ThemePickerLayout');
     const contactMoiNavBtn = document.getElementById('contactMoiNavBtn');
 
-    let animationInitiale = gsap.timeline({ paused: true });
+    let animationInitiale = gsap.timeline({ paused: false });
 
     animationInitiale.fromTo(welcomeMessage.querySelector('h1'), {
         text: '',
@@ -90,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 1.5,
             ease: 'power2.inOut'
         }, "<");
-    animationInitiale.progress(1);
+     /* animationInitiale.progress(1); */ 
 
     const btnProchainTexte = document.getElementById('btnProchainTexte');
     const textAProposDeMoi = document.getElementById('texteAProposAccueil');
@@ -431,6 +464,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+
     ouvrirBtn.addEventListener('mouseenter', () => {
         ouvrirInfo.classList.remove('opacity-0');
     });
@@ -458,4 +493,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ouvrirBtn.classList.remove('opacity-0');
         fermerInfo.classList.add('opacity-0');
     });
+
+    
 });
