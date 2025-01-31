@@ -2,40 +2,7 @@ import { Connita, Wonders } from './projets.js';
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(Flip);
 
-document.addEventListener('DOMContentLoaded', (event) => {
-
-    const cards = document.querySelectorAll(".card");
-	cards.forEach((e) => {
-        e.addEventListener("mousemove", (event) => {
-            gsap.killTweensOf(e);
-    
-            const rect = e.getBoundingClientRect();
-            const centerX = (rect.left + rect.right) / 2;
-            const centerY = (rect.top + rect.bottom) / 2;
-    
-            const offsetX = event.clientX - centerX;
-            const offsetY = event.clientY - centerY;
-    
-            const rotateX = offsetY * 0.09;
-            const rotateY = offsetX * 0.125;
-    
-            gsap.to(e, {
-                rotateX: -rotateX,
-                rotateY: rotateY,
-            });
-        });
-    
-        e.addEventListener("mouseout", () => {
-            gsap.to(e, {
-                rotateX: 0,
-                rotateY: 0,
-                duration: 1,
-                ease: 'power3.inOut'
-            });
-        });
-    });
-    
-    
+document.addEventListener('DOMContentLoaded', (event) => {    
 
     const header = document.getElementById('header');
     const experience = document.getElementById('experience');
